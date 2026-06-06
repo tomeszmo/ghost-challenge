@@ -34,6 +34,8 @@ export class GameScreen implements Screen {
 
   // ─── Mode selection ───────────────────────────────────────────────────────
 
+  // ─── Mode selection ───────────────────────────────────────────────────────
+
   private pickMode(): GameMode {
     // URL param override for testing: #/game?type=PC or ?type=MR or ?type=TG
     const params = router.currentParams();
@@ -41,8 +43,12 @@ export class GameScreen implements Screen {
     if (t === 'PC') return 'PERFECT_CUT';
     if (t === 'MR') return 'MATCH_RHYTHM';
     if (t === 'TG') return 'TAP_GRID';
-    // Random between the two new games
-    return Math.random() < 0.5 ? 'PERFECT_CUT' : 'MATCH_RHYTHM';
+
+    // Sorsolás mind a három játék között egyenlő eséllyel:
+    const rand = Math.random();
+    if (rand < 0.33) return 'PERFECT_CUT';
+    if (rand < 0.66) return 'MATCH_RHYTHM';
+    return 'TAP_GRID';
   }
 
   // ─── Render ───────────────────────────────────────────────────────────────
