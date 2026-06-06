@@ -1,0 +1,19 @@
+{
+  "name": "ChallengeGhost",
+  "short_name": "ChallengeGhost",
+  "description": "Issue micro-challenges. Bet on the outcome. Let the ghost decide.",
+  "start_url": "/challengeghost/",
+  "scope": "/challengeghost/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "icons": [
+    {
+      "src": "/challengeghost/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-ghost: #a855f7;
+  --color-accent: #22d3ee;
+  --color-success: #4ade80;
+  --color-danger: #f87171;
+  --color-surface: #0a0a0f;
+  --color-panel: #111118;
+  --color-border: #1e1e2e;
+  --color-muted: #6b7280;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--color-surface);
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Neon glow utilities ─────────────────────────────────── */
+
+.neon-text-accent {
+  color: var(--color-accent);
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+}
+
+.neon-text-ghost {
+  color: var(--color-ghost);
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+.neon-text-success {
+  color: var(--color-success);
+  text-shadow: 0 0 20px rgba(74, 222, 128, 0.5);
+}
+
+.neon-text-danger {
+  color: var(--color-danger);
+  text-shadow: 0 0 20px rgba(248, 113, 113, 0.5);
+}
+
+/* ── Reusable component classes ──────────────────────────── */
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-align: center;
+  background: var(--color-accent);
+  color: #000;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.2);
+}
+
+.btn-ghost-style {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-align: center;
+  background: transparent;
+  color: var(--color-ghost);
+  border: 1px solid var(--color-ghost);
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-ghost-style:active {
+  transform: scale(0.96);
+}
+
+.btn-danger {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+  background: transparent;
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.btn-danger:active {
+  transform: scale(0.96);
+}
+
+.panel {
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+}
+
+/* ── Animations ──────────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ghostFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+.anim-fade-in  { animation: fadeIn  0.3s ease-out both; }
+.anim-slide-up { animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.anim-ghost-float { animation: ghostFloat 4s ease-in-out infinite; }
